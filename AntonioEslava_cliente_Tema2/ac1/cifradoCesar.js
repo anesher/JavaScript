@@ -28,7 +28,9 @@ function cifradoCesar(frase, clave) {
     // Mostramos el resultado con un alert
     alert(final);
 
-/* for(let i=0; i<=frase.length; i++){
+/* 
+Otra forma de hacerlo :
+for(let i=0; i<=frase.length; i++){
     letra=frase[i].toLowerCase(); // Convertimos la letra a minúscula para buscarla en el alfabeto
     if (letra===' '){
         repuesta+=' ';
