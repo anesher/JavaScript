@@ -8,7 +8,6 @@ function Persona(nombre,edad){
     this.edad=edad;
     
 }
-
 Persona.prototype.saludo=function(){
      console.log (`Hola mi nombre es ${this.nombre} y tengo ${this.edad}`);
 }
