@@ -19,4 +19,5 @@ function restar(){
 
 function igual(){
     alert(numero);
+    numero=0;
 }
