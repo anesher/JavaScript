@@ -1,0 +1,18 @@
+Crea una clase dinosaurio con los siguientes parámetros: nombre, posiciónX, posicionY, estado
+(hambriento, enfadado, tranquilo, con sueño). Cada vez que creamos un dinosaurio se debe de abrir una
+ventana con el nombre del dinosaurio, está ventana tendrá un tamaño de 100x100px. Todos los dinosaurios
+empiezan en el centro de la pantalla donde se crearon. Cada dinosaurio tendrá un método mover que
+reciba por parámetros dos números (positivos o negativos entre -50 y +50. Cada vez que se llame este
+métsi odo se deberá de comprobar la posición del dinosaurio con respecto a la ventana. Si nos aproximamos
+en menos de 10 px a los bordes, el color de la pantalla debe de ser rojo, nos aproximamos entre 20 y 10 el
+color debe ser naranja. En cualquier otro caso deberá de permanecer verde.
+La clase debe tener un método que compruebe el estado y en función de si esta hambriento, enfadado,
+tranquilo o con sueño debe de imprimir en su ventana un mensaje personalizado.
+A la hora de crear dinosaurios debemos de tener en cuenta que nuestro pequeño recinto (pantalla) no
+puede superar el aforo. Para ello debemos sumar el área de cada una de nuestras ventanas y debe ser
+inferior que el tamaño de nuestra ventana principal, si crear un nuevo dinosaurio supera los limites no
+podrá crearse, cada vez que creemos un nuevo dinosaurio debemos comprobarlo.
+Cambiaremos la intensidad de gris en la pantalla principal en función del espacio existente, es decir
+cuando creamos el primero el fondo de nuestra pantalla será blanco y cuando estemos a la mitad de
+almacenamiento subirá a gris claro, cuando llevemos 3/4 partes gris más oscuro y cuando quede menos del
+10% gris oscuro (y texto en blanco informando que estamos a punto de desbordarnos.)
