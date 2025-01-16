@@ -1,38 +1,62 @@
-"use script"
+"use strict";
 
-import { Coleccion } from "./Coleccion";
+import { Coleccion,Disco,Autor } from "./Coleccion.js";
+
 
 try {
     var coleccion = new Coleccion();
-    var disco = new Disco();
-    var salida=0;
-    do{
-    var eleccion=Number(prompt("si quieres introducir un agregar un disco pulse 1, si quiere mostrar un disco pulsar 2,"+
-        "si quiere borrar un disco pulse 3, si quiere prestar un disco pulse 4, si quiere devolver un disco pulse 5"));
-    switch(eleccion){
-        case 1:
-            disco.agregarDisco();
-            break;
-        case 2:
-            disco.mostrarDisco();
-            break;
-        break;
-        case 3:
-            disco.borraDisco();
-            break;
-        case 4:
-            disco.prestarDisco();
-            break;
-        case 5:
-            disco.devolverDisco();
-            break;
-        default:
-            console.log("opcion no valida");
-            break;
-    }
-    salida=Number(prompt("si quiere salir pulse 9"));
-    }while(salida!=9);
-    
-    } catch (error) {
-        console.log("algo salio mal: "+error.message);
-    }
+    coleccion.precargarDiscos();
+    var salida = false;
+    do {
+        var eleccion = Number(prompt("1: Agregar un disco\n2: Mostrar un disco\n3: Borrar un disco\n4: Prestar un disco\n5: Devolver un disco\n6: Listar autores y sus discos\n7: Listar colección completa\n8: Salir"));
+        switch (eleccion) {
+            case 1:
+                let nombre = prompt("Introduce el nombre del disco");
+                let nombreAutor = prompt("Introduce el nombre del autor");
+                let fechaNacimiento = prompt("Introduce la fecha de nacimiento del autor");
+                let fechaPublicacion = prompt("Introduce la fecha de publicación del disco");
+                let tipo = prompt("Introduce el tipo del disco");
+                let estado = prompt("Introduce el estado del disco (prestado/disponible)");
+                let localizacion = prompt("Introduce la localización del disco");
+                let autor = new Autor(nombreAutor, fechaNacimiento);
+                let disco = new Disco(nombre, autor, fechaPublicacion, tipo, estado, localizacion);
+                coleccion.agregarDisco(disco);
+                alert("Disco agregado con éxito");
+                break;
+            case 2:
+                 coleccion.buscarDisco(prompt("Introduce el nombre del disco"));
+                if (disco) {
+                    alert(`Nombre: ${disco.nombre}\nAutor: ${disco.autor.nombre}\nFecha de publicación: ${disco.fecha_publicacion}\nTipo: ${disco.tipo}\nEstado: ${disco.estado}\nLocalización: ${disco.localizacion}`);
+                } else {    
+                    alert("Disco no encontrado");
+                }
+                break;
+            case 3:
+                // Implementar borrar disco
+                disco.borrarDisco(prompt("Introduce el nombre del disco"));
+                alert("Disco borrado con éxito");
+                break;
+            case 4:
+                disco.prestarDisco(prompt("Introduce el nombre del disco"));
+                alert("Disco prestado con éxito");
+                break;
+            case 5:
+                disco.devolverDisco(prompt("Introduce el nombre del disco"));
+                alert("Disco devuelto con éxito");
+                break;
+            case 6:
+                coleccion.listarAutores();
+                break;
+            case 7:
+                coleccion.listarColeccion();
+                break;
+            case 8:
+                salida = true;
+                break;
+            default:
+                alert("Opción no válida");
+        }
+    } while (!salida);
+} catch (error) {
+    console.error(error);
+}

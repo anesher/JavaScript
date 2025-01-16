@@ -4,7 +4,7 @@ import {Autor} from "./autor.js";
 export class Disco{
     Autor = new Autor(nombre,fecha_nacimiento,discos_publicados);
     constructor(nombreD,nombreA,fecha_publicacion,tipo,estado,localizacion){
-        Autor.call(this,nombreA,discos_publicados);
+        super(nombreA,discos_publicados);
         this.nombreD = nombreD;
         this.fecha_publicacion = fecha_publicacion;
         this.tipo = tipo;
