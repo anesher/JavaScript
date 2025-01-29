@@ -9,5 +9,4 @@ export class Programa{
         this.opurtinidades = Math.floor(Math.random() * 3)+2;
     }
    
-   
 }

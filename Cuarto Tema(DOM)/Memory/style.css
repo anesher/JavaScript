@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh; /* Asegurarse de que el body ocupe toda la altura de la ventana */
+}
+#pantalla_principal {
+    width: 100vw; /* 100% del ancho de la ventana */
+    height: 100vh; /* 100% de la altura de la ventana */
+    background-image: url('./imagenes/portada.png'); /* Ruta a tu imagen */
+    background-size: contain; /* Ajustar la imagen dentro del div sin recortarla */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn {
+    background-image: url('./imagenes/llamador.png'); /* Cambia 'tu-imagen.jpg' por la ruta de tu imagen */
+    background-size: cover; /* Ajusta la imagen al tamaño del botón */
+    background-position: center; /* Centra la imagen */
+    width: 175px; /* Ancho del botón */
+    height: 100px; /* Alto del botón */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor al pasar por el botón */
+    outline: none; /* Elimina el borde al seleccionar */
+    color: transparent; /* Oculta el texto del botón */
+    margin-top: -100px; /* Mueve el botón 20px hacia arriba */
+}
+
+#btn:active {
+    transform: scale(0.95); /* Efecto al presionar el botón */
+}
+
+.oculta {
+    background-color: gray;
+}
