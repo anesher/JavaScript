@@ -1,36 +1,74 @@
 body {
     margin: 0;
     display: flex;
-    height: 100vh; /* Asegurarse de que el body ocupe toda la altura de la ventana */
+    height: 100vh;
 }
+
 #pantalla_principal {
-    width: 100vw; /* 100% del ancho de la ventana */
-    height: 100vh; /* 100% de la altura de la ventana */
-    background-image: url('./imagenes/portada.png'); /* Ruta a tu imagen */
-    background-size: contain; /* Ajustar la imagen dentro del div sin recortarla */
-    background-position: center; /* Centrar la imagen */
-    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./imagenes/portada.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #btn {
-    background-image: url('./imagenes/llamador.png'); /* Cambia 'tu-imagen.jpg' por la ruta de tu imagen */
-    background-size: cover; /* Ajusta la imagen al tamaño del botón */
-    background-position: center; /* Centra la imagen */
-    width: 175px; /* Ancho del botón */
-    height: 100px; /* Alto del botón */
-    border: none; /* Sin bordes */
-    cursor: pointer; /* Cambia el cursor al pasar por el botón */
-    outline: none; /* Elimina el borde al seleccionar */
-    color: transparent; /* Oculta el texto del botón */
-    margin-top: -100px; /* Mueve el botón 20px hacia arriba */
+    background-image: url('./imagenes/llamador.png');
+    background-size: cover;
+    background-position: center;
+    width: 175px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: transparent;
+    margin-top: -100px;
 }
 
 #btn:active {
-    transform: scale(0.95); /* Efecto al presionar el botón */
+    transform: scale(0.95);
 }
 
 .oculta {
     background-color: gray;
+}
+
+/* Estilos para las cartas */
+.carta {
+    width: 100px;
+    height: 150px;
+    perspective: 1000px;
+    display: inline-block;
+}
+
+.carta-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    transform-origin: center;
+}
+
+.carta.volteada .carta-inner {
+    transform: rotateY(180deg);
+}
+
+.carta-frente,
+.carta-dorso {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carta-frente {
+    transform: rotateY(180deg);
 }
