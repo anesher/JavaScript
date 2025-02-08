@@ -1,4 +1,5 @@
 import { Carta } from "./carta.js"; 
+import MenuJuego from "./MenuJuego.js";
 
 
 const divTable = document.getElementById("juego");
@@ -35,7 +36,7 @@ btn.addEventListener("click", function () {
     divTable.style.display = "block";
     divMain.style.display = "block";
     audio.play();
-    
+    new MenuJuego();
 
 
     const table = document.createElement("table");

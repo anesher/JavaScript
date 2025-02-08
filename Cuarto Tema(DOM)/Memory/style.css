@@ -1,43 +1,70 @@
-body {
-    margin: 0;
+.menu-cofrade {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #8b7355;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(139, 115, 85, 0.5);
 }
 
-#pantalla_principal {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('./imagenes/portada.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+.titulo-cofrade {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #b08d57; 
+    text-transform: uppercase;
+    font-family: 'Times New Roman', serif;
+}
+
+
+.contenedor-opciones {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
     align-items: center;
 }
 
-#btn {
-    background-image: url('./imagenes/llamador.png');
-    background-size: cover;
-    background-position: center;
-    width: 175px;
-    height: 100px;
-    border: none;
+.selector-dificultad {
+    width: 200px;
+    height: 45px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background: #3a2c1b;
+    border: 2px solid #8b7355;
+    color: #d4af37;
+    text-align: center;
+    border-radius: 8px;
     cursor: pointer;
-    outline: none;
-    color: transparent;
-    margin-top: -100px;
+    font-family: 'Times New Roman', serif;
 }
 
-#btn:active {
+.btn-cofrade {
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(to bottom, #8b7355, #5a4a3a);
+    border: 2px solid #d4af37;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-cofrade:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #d4af37;
+    background: linear-gradient(to bottom, #9c8465, #6b5a4a);
+}
+
+.btn-cofrade:active {
     transform: scale(0.95);
 }
 
-.oculta {
-    background-color: gray;
-}
-
-/* Estilos para las cartas */
 .carta {
     width: 100px;
     height: 150px;

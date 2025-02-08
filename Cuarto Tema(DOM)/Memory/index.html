@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juego Cofrade de Memoria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="pantalla_principal">
-        <button id="btn"></button>
+        <div class="menu-cofrade">
+            <h1 class="titulo-cofrade">Entre Misterios y Varales</h1>
+            <div class="contenedor-opciones">
+                <select id="dificultad" class="selector-dificultad">
+                    <option value="facil">Fácil</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+                <button id="btn" class="btn-cofrade">JUGAR</button>
+            </div>
+        </div>
     </div>
-    <div id="inicio">
-        
-    </div>
+    <div id="inicio"></div>
     <div id="juego"></div>
     <audio id="audio">
         <source src="./imagenes/Eternidad.mp3" type="audio/mpeg">
