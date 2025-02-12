@@ -27,6 +27,11 @@ divMain.style.background = "black";
 
 divTable.style.width = "50vw";
 divTable.style.height = "100vh";
+divTable.style.backgroundImage = "url('./imagenes/tapete.jpg')"; 
+divTable.style.backgroundSize = "cover"; 
+divTable.style.backgroundPosition = "center"; 
+divTable.style.backgroundRepeat = "no-repeat";
+
 
 let cartasVolteadas = [];
 let paresEncontrados = 0;

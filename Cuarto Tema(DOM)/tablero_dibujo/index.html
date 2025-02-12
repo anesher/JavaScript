@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Tablero de Dibujo</title>
+  <style>
+    /* Estilos para el tablero de dibujo */
+    table {
+      border-collapse: collapse;
+      margin: auto;
+      /* Centra la tabla en la página */
+    }
+
+    td {
+      border: 1px solid black;
+      cursor: pointer;
+      /* Cambia el cursor para indicar que las celdas son interactivas */
+    }
+
+    /* Estilos para la paleta de colores */
+    #paleta td {
+      width: 50px;
+      height: 50px;
+      border: 2px solid grey;
+    }
+
+    /* Colores específicos para cada celda de la paleta */
+    .color1 {
+      background-color: red;
+    }
+
+    .color2 {
+      background-color: blue;
+    }
+
+    .color3 {
+      background-color: green;
+    }
+
+    .color4 {
+      background-color: yellow;
+    }
+
+    .color5 {
+      background-color: black;
+    }
+    .color6 {
+      background-color: white;
+    }
+
+    /* Estilo para la celda seleccionada */
+    .seleccionado {
+      border: 2px solid gold;
+      /* Resalta la celda seleccionada */
+    }
+
+    /* Estilo para el mensaje de estado del pincel */
+    #pincel {
+      text-align: center;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: lightgray;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="paleta">
+    <tr>
+      <td class="color1"></td>
+      <td class="color2"></td>
+      <td class="color3"></td>
+      <td class="color4"></td>
+      <td class="color5"></td>
+      <td class="color6"></td>
+    </tr>
+    <tr>
+      <td colspan="6" id="pincel">Estado del pincel</td>
+    </tr>
+  </table>
+  <div id="zonadibujo"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
