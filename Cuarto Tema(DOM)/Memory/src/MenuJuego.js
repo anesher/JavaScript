@@ -2,56 +2,42 @@ class MenuJuego {
     constructor() {
         this.menuDiv = document.createElement("div");
         this.menuDiv.id = "menu-juego";
+        this.menuDiv.style.position = "fixed";
+        this.menuDiv.style.top = "0";
+        this.menuDiv.style.left = "0";
+        this.menuDiv.style.right = "0";
+        this.menuDiv.style.background = "rgba(0, 0, 0, 0.8)";
+        this.menuDiv.style.padding = "1.5rem 1rem";
+        this.menuDiv.style.zIndex = "1000";
         this.menuDiv.style.display = "flex";
-        this.menuDiv.style.flexDirection = "column";
+        this.menuDiv.style.justifyContent = "space-around";
         this.menuDiv.style.alignItems = "center";
-        this.menuDiv.style.justifyContent = "center";
-        this.menuDiv.style.width = "100%";
-        this.menuDiv.style.height = "100%";
-        this.menuDiv.style.position = "relative";
-        this.menuDiv.style.background = "white"; // Fondo blanco
-        
+        this.menuDiv.style.minHeight = "80px";
+
+        this.contadoresDiv = document.createElement("div");
+        this.contadoresDiv.style.display = "flex";
+        this.contadoresDiv.style.gap = "2rem";
+        this.contadoresDiv.style.alignItems = "center";
+
         this.contador = document.createElement("div");
         this.contador.id = "contador";
-        this.contador.style.color = "black";
-        this.contador.style.fontSize = "2rem";
-        this.contador.style.marginTop = "20px";
-        this.contador.innerText = "03:30";
-        
-        this.imagen = document.createElement("img");
-        this.imagen.src = "./imagenes/menu.jpg";
-        this.imagen.id = "imagen-menu";
-        this.imagen.style.width = "150px";
-        this.imagen.style.height = "150px";
-        
-        this.menuDiv.appendChild(this.imagen);
-        this.menuDiv.appendChild(this.contador);
-        
-        const inicioDiv = document.getElementById("inicio");
-        if (inicioDiv) {
-            inicioDiv.appendChild(this.menuDiv);
-        } else {
-            console.error("No se encontró el div #inicio para agregar el menú.");
-        }
+        this.contador.style.color = "#d4af37";
+        this.contador.style.fontSize = "1.7rem";
+        this.contador.textContent = "03:30";
+
+        this.movimientosContador = document.createElement("div");
+        this.movimientosContador.id = "movimientos";
+        this.movimientosContador.style.color = "#d4af37";
+        this.movimientosContador.style.fontSize = "1.7rem";
+        this.movimientosContador.textContent = "Movimientos: 0";
+
+        this.contadoresDiv.appendChild(this.contador);
+        this.contadoresDiv.appendChild(this.movimientosContador);
+        this.menuDiv.appendChild(this.contadoresDiv);
+
+        document.body.appendChild(this.menuDiv);
         
         this.tiempoRestante = 210;
-        
-        // Crear un único div para mostrar frases
-        this.mensajeDiv = document.createElement("div");
-        this.mensajeDiv.style.position = "absolute";
-        this.mensajeDiv.style.bottom = "20%";
-        this.mensajeDiv.style.color = "black";
-        this.mensajeDiv.style.fontSize = "1.5rem";
-        this.mensajeDiv.style.textAlign = "center";
-        this.mensajeDiv.style.backgroundColor = "white";
-        this.mensajeDiv.style.border = "3px solid black"; // Borde negro estilo cómic
-        this.mensajeDiv.style.padding = "10px";
-        this.mensajeDiv.style.borderRadius = "10px";
-        this.mensajeDiv.style.boxShadow = "5px 5px 0px black"; // Efecto bocadillo
-        this.mensajeDiv.style.maxWidth = "80%";
-        this.mensajeDiv.style.wordWrap = "break-word";
-        this.menuDiv.appendChild(this.mensajeDiv);
-        
         this.frases = [
             { tiempo: 210, mensaje: "¡TOO POR IGUAL VALIENTES, A ESTAAA ESSS!" },
             { tiempo: 180, mensaje: "¡IZQUIERDA ALANTE DERECHA ATRAS!" },
@@ -63,7 +49,6 @@ class MenuJuego {
             { tiempo: 10, mensaje: "¡VAMOS A TERMINAR ESTA CHICOTA COMO DIOS MANDA!" }
         ];
 
-        this.mostrarMensaje(this.frases[0].mensaje);
         this.iniciarContador();
     }
 
@@ -72,7 +57,7 @@ class MenuJuego {
             this.tiempoRestante--;
             let minutos = Math.floor(this.tiempoRestante / 60);
             let segundos = this.tiempoRestante % 60;
-            this.contador.innerText = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+            this.contador.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
             
             this.frases.forEach(frase => {
                 if (frase.tiempo === this.tiempoRestante) {
@@ -82,13 +67,32 @@ class MenuJuego {
 
             if (this.tiempoRestante <= 0) {
                 clearInterval(this.intervalo);
-                alert("¡Tiempo agotado!");
+                this.mostrarMensaje("¡Tiempo agotado!");
+                setTimeout(() => alert("¡Tiempo agotado!"), 100);
             }
         }, 1000);
     }
 
+    actualizarMovimientos(movimientos) {
+        this.movimientosContador.textContent = `Movimientos: ${movimientos}`;
+    }
+
     mostrarMensaje(mensaje) {
-        this.mensajeDiv.innerText = mensaje; // Reemplazar el texto del div en lugar de crear nuevos
+        if (!this.mensajeDiv) {
+            this.mensajeDiv = document.createElement("div");
+            this.mensajeDiv.style.position = "fixed";
+            this.mensajeDiv.style.bottom = "100px";
+            this.mensajeDiv.style.left = "50%";
+            this.mensajeDiv.style.transform = "translateX(-50%)";
+            this.mensajeDiv.style.color = "white";
+            this.mensajeDiv.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+            this.mensajeDiv.style.padding = "15px 30px";
+            this.mensajeDiv.style.borderRadius = "8px";
+            this.mensajeDiv.style.fontSize = "1.2rem";
+            document.body.appendChild(this.mensajeDiv);
+        }
+        this.mensajeDiv.textContent = mensaje;
+        setTimeout(() => this.mensajeDiv.textContent = "", 5000);
     }
 }
 

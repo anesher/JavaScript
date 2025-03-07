@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistente de Cocina Virtual</title>
+</head>
+<body>
+    <h2>Asistente de Cocina Virtual</h2>
+    <p><!-- Aquí debe aparecer el mensaje personalizado--></p>
+
+    <form>
+        <label for="ingredientSelect">Elige un ingrediente:</label>
+        <select name="ingredient" onchange="updateIngredient()">
+            <option value="tomate">Tomate</option>
+            <option value="pollo">Pollo</option>
+            <option value="limón">Limón</option>
+            <option value="ajo">Ajo</option>
+        </select>
+    </form>
+
+    <h3>Recetas Destacadas</h3>
+    <div>
+        <p><strong>Ensalada de Pollo</strong> - Ingredientes: pollo, lechuga, tomate, aceitunas</p>
+        <p><strong>Sopa de Tomate</strong> - Ingredientes: tomate, cebolla, ajo, albahaca</p>
+        <p><strong>Pollo al Limón</strong> - Ingredientes: pollo, limón, ajo, pimienta</p>
+    </div>
+
+    <label for="clearCookie">Eliminar preferencias de ingredientes</label>
+    <input type="checkbox" name="clearCookie" onchange="clearIngredientCookie()">
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Crea una web que funcione como asistente de cocina virtual, tenga un formulario con un desplegable que muestre los diferentes ingredientes y una lista de recetas (nombre y descripción). Al entrar en la web si existe una cookie llamada ingrediente debe mostrar el mensaje “ Bienvenido amante del (ingrediente) hoy te recomendamos estas recetas” y una lista con las recetas que contengan ese ingrediente. 
+
+En el html debe existir un desplegable para elegir el ingrediente, que se actualice cada vez que cambien de valor. 
+
+Además en el html debe de existir varios párrafos que contengan nombre e ingredientes de la receta.  
+
+Cuando entremos y haya una cookie de ingrediente debemos de colocar en primer lugar las recetas que tienen el ingrediente seleccionado. 
+
+Al final de la página deberemos tener un checkbox que si lo marcamos eliminaremos la cookie. 
+
+html para realizar la practica, trabaja con el html dado no introduzcas ningún atributo extra. 
